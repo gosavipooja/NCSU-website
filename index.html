@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Procedure: Brkr-03</title>
+  <link rel = "stylesheet" type = "text/css" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    }
+
+    button.accordion.active, button.accordion:hover {
+        background-color: #ccc;
+    }
+
+    button.accordion:after {
+        content: '\002B';
+        color: #777;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+    }
+
+    button.accordion.active:after {
+        content: "\2212";
+    }
+
+    div.panel {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
+    /* The heart of the matter */
+    .testimonial-group > .row {
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .testimonial-group > .row > .col-xs-4 {
+      display: inline-block;
+      float: none;
+    }
+
+    /* Decorations */
+    .col-xs-4 { color: #fff; font-size: 48px; padding-bottom: 20px; padding-top: 18px; }
+    .col-xs-4:nth-child(2n+1) { background: rgb(148, 217, 235); }
+    .col-xs-4:nth-child(2n+2) { background: rgb(211, 155, 155); }
+  </style>
+</head>
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<h2>Brkr-03: High/Medium Voltage SF6 Circuit Breaker - Inspect and Test SF6 Circuit Breaker</h2>
+<p>This is a Procedure for High/Medium Voltage SF6 Circuit Breaker - Inspect and Test SF6 Circuit Breaker.</p>
+<button class="accordion">Procedure Number: Brkr-03</button>
+<div class="panel">
+  <p><div class="container testimonial-group">
+      <div class="row text-center">
+        <button id="btn" class="col-xs-4">Notes</button><!--
+        --><button id="btn" class="col-xs-4">Images</button><!--
+        --><button id="btn" class="col-xs-4">Video</button>
+     </div>
+    </div>
+    <button>Add Note</button></p>
+</div>
+<button class="accordion">System Description: High/Medium Voltage SF6 Circuit Breaker</button>
+<div class="panel">
+  <p><div class="container testimonial-group">
+      <div class="row text-center">
+        <button id="btn" class="col-xs-4">Notes</button><!--
+        --><button id="btn" class="col-xs-4">Images</button><!--
+        --><button id="btn" class="col-xs-4">Video</button>
+     </div>
+    </div>
+    <button>Add Note</button></p>
+</div>
+<button class="accordion">Procedure Description: Inspect and Test Circuit Breaker</button>
+<div class="panel">
+  <p><div class="container testimonial-group">
+      <div class="row text-center">
+        <button id="btn" class="col-xs-4">Notes</button><!--
+     --><button id="btn" class="col-xs-4">Images</button><!--
+     --><button id="btn" class="col-xs-4">Video</button>
+     </div>
+    </div>
+    <button>Add Note</button></p>
+</div>
+
+
+<!-- Button to trigger modal -->
+<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+</div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    for (i = 0; i < acc.length; i++) {
+      acc[i].onclick = function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      }
+    }
+  </script>
+</body>
+</html>
+
