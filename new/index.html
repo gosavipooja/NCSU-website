@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Procedure: Brkr-03</title>  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="scripts/script.js"></script>
+  <link rel = "stylesheet" type = "text/css" href = "css/style.css" />
+  <link rel = "stylesheet" type = "text/css" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    /* Table title */
+    .col-xs-4 { color: rgb(29, 25, 25); font-size: 24px; padding-bottom: 10px; padding-top: 10px;}
+    .col-xs-4:nth-child(1) {padding-bottom: 10px; padding-top: 10px; width: 1%; }
+    .col-xs-4:nth-child(3) {padding-bottom: 10px; padding-top: 10px; width: 5%; }
+  </style>
+</head>
+<body>
+  <h2>Brkr-03: High/Medium Voltage SF6 Circuit Breaker - Inspect and Test.</h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th scope='col' class='col-xs-4'>#</th>
+        <th scope='col' class='col-xs-4'>Steps</th>
+        <th scope='col' class='col-xs-4'>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope='row'>1</th>
+        <td>Procedure Number: Brkr-03 Brkr-03: High/Medium Voltage SF6 Circuit Breaker - Inspect and Test SF6 Circuit Breaker Brkr-03: High/Medium Voltage SF6 Circuit Breaker - Inspect and Test SF6 Circuit Breaker Brkr-03: High/Medium Voltage SF6 Circuit Breaker - Inspect and Test SF6 Circuit Breaker Brkr-03: High/Medium Voltage SF6 Circuit Breaker - Inspect and Test SF6 Circuit Breaker Brkr-03: High/Medium Voltage SF6 Circuit Breaker - Inspect and Test SF6 Circuit Breaker</td>
+        <td><img src='images/image.png' height=15px width=15px>&nbsp;&nbsp;<img src='images/note.png' height=15px width=15px>&nbsp;&nbsp;<img src='images/video.png' height=15px width=15px>
+          <br><br>
+            <div class='expand1'><img class='gobtn1' src='images/go.png' height=25px width=25px></div>
+        </td>
+      </tr>
+      <tr class='content content1'>
+        <td></td><td>
+        <div class='collapsedContent'>
+            <button id='btn'>Images</button>
+            <button id='btn'>Notes</button>
+            <button id='btn'>Video</button>
+            <br><br>
+            <button>Add Note</button>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope='row'>2</th>
+        <td>System Description: High/Medium Voltage SF6 Circuit Breaker</td>
+        <td><img src='images/image.png' height=15px width=15px>&nbsp;&nbsp;<img src='images/note.png' height=15px width=15px>
+          <br><br>
+          <div class='expand2'><img class='gobtn2' src='images/go.png' height=25px width=25px></div>
+        </td>
+      </tr>
+      <tr class='content content2'>
+        <td></td><td>
+          <div class='collapsedContent'>
+            <button id='btn'>Images</button>
+            <button id='btn'>Notes</button>
+            <br><br>
+            <button>Add Note</button>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope='row'>3</th>
+        <td>Procedure Description: Inspect and Test Circuit Breaker</td>
+        <td><img src='images/image.png' height=15px width=15px>&nbsp;&nbsp;<img src='images/video.png' height=15px width=15px>
+          <br><br>
+          <div class='expand3'><img class='gobtn3' src='images/go.png' height=25px width=25px></div>
+        </td>
+      </tr>
+      <tr class='content content3'>
+        <td></td><td>
+          <div class='collapsedContent'>
+            <button id='btn'>Images</button>
+            <button id='btn'>Video</button>
+            <br><br>
+            <button>Add Note</button>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope='row'>4</th>
+        <td>Procedure Description: Finalize the Procedure</td>
+        <td><img src='images/image.png' height=15px width=15px>
+          <br><br>
+          <div class='expand4'><img class='gobtn4' src='images/go.png' height=25px width=25px></div>
+        </td>
+      </tr>
+      <tr class='content content4'>
+        <td></td><td>
+          <div class='collapsedContent'>
+            <button id='btn'>Images</button>
+            <br><br>
+            <button>Add Note</button>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+
+
+<!-- Button to trigger modal -->
+<a href='#myModal' role='button' class='btn' data-toggle='modal'>Launch demo modal</a>
+
+<!-- Modal -->
+<div id='myModal' class='modal hide fade' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+  <div class='modal-header'>
+    <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
+    <h3 id='myModalLabel'>Modal header</h3>
+  </div>
+  <div class='modal-body'>
+    <p>One fine body…</p>
+  </div>
+  <div class='modal-footer'>
+    <button class='btn' data-dismiss='modal' aria-hidden='true'>Close</button>
+    <button class='btn btn-primary'>Save changes</button>
+  </div>
+</div>
+
+
+<script>
+    var acc = document.getElementsByClassName('accordion');
+    var i;
+    for (i = 0; i < acc.length; i++) {
+      acc[i].onclick = function() {
+        this.classList.toggle('active');
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        } 
+      }
+    }
+  </script>
+</body>
+</html>
+
