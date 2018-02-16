@@ -1,0 +1,65 @@
+/*Here, for now, the widths and heights are hard coded for demo*/
+#green {
+    width: 1030px;
+    height: 1000px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    float: left;
+    margin: 5px;
+}
+/* #red {
+    width: 610px;
+    height: 400px;
+    border: 1px solid black;
+    margin: 5px;
+    float: left;
+} */
+#note {
+    width: 600px;
+    height: 300px;
+    /*border: 1px solid black;*/
+    margin: 5px;
+    float: left;
+}
+#blue {
+    width: 310px;
+    height: 100px;
+    border: 1px solid blue;
+    margin: 5px;
+    clear: both;
+}
+
+/*This is from the older version*/
+.table {
+    margin-top: -250px;
+}
+
+div.image {
+    width: 600px;
+    height: 500px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    margin: 5px;
+    float: left;
+ }​
+
+
+/* .previews {
+    padding: 1%;
+    padding-left: 25%;
+}
+.previewImg {
+    height: 240px;
+    width: 240px;
+    border: #000 4px dotted;
+}
+video.previewImg {
+    vertical-align: bottom;
+}
+iframe.previewImg {
+    vertical-align: bottom;
+    word-wrap: break-word;
+    font-size: 24px;
+} */
