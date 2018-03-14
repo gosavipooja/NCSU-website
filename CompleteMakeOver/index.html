@@ -1,0 +1,283 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Procedure</title>
+  <meta name="description" content="Prototype for Procedures">
+  <meta name="author" content="Pooja">
+  <link rel = "stylesheet" type = "text/css" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel = "stylesheet" href = "css/style.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+</style>
+</head>
+
+<body>
+  <!-- <script src="js/scripts.js"></script> -->
+    <div id="fixed">
+        <div id="scrollcontainer">
+                <div data-role="page" id="tablecontainer">
+                        <div data-role="header" data-position="fixed">
+                            <h1>Swipe Feature Trial</h1>
+                        </div>
+                        <div role="main" class="ui-content">
+                                <link rel = "stylesheet" type = "text/css" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                                <style>
+                                 .col-xs-2 { color: rgb(29, 25, 25); font-size: 24px; padding-bottom: 10px; padding-top: 10px;}
+                                 .col-xs-2:nth-child(1) {padding-bottom: 10px; padding-top: 10px; width: 1%; }
+                                 .col-xs-2:nth-child(3) {padding-bottom: 10px; padding-top: 10px; width: 5%; }
+                                 .col-xs-8 { color: rgb(29, 25, 25); font-size: 24px; padding-bottom: 10px; padding-top: 10px;}
+                                 .col-xs-8:nth-child(1) {padding-bottom: 10px; padding-top: 10px; width: 1%; }
+                                 .col-xs-8:nth-child(3) {padding-bottom: 10px; padding-top: 10px; width: 5%; }
+                                </style>
+                              <h2>Tooth Extraction.</h2>
+                              <table class='table'>
+                                <thead>
+                                  <tr>
+                                    <th scope='col' class='col-xs-2'>#</th>
+                                    <th scope='col' class='col-xs-8'>Steps</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope='row'>1</th>
+                                    <td>Puncture end of Temporary Filling tube using other end of cap on the filling material tube
+                                        <br>
+                                        Puncture end of Temporary Filling tube using other end of cap on the filling material tube
+                                    </td>
+                                      <br><br>
+                                    </td>
+                                    <td></td>
+                                  </tr>
+                                  <br>
+                                  <tr>
+                                    <th scope='row'>2</th>
+                                    <td>Don Non-Sterile Gloves</td>
+                                      <br><br>
+                                    </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope='row'>3</th>
+                                    <td>Squeeze Temporary Filling material onto finger</td>
+                                      <br><br>
+                                    </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope='row'>4</th>
+                                    <td>Gently place filling in tooth cavity, wiping off excess with Gauze Pads
+                                        <br><br>
+                                        Gently place filling in tooth cavity, wiping off excess with Gauze Pads
+                                        <br><br><br>
+                                        Gently place filling in tooth cavity, wiping off excess with Gauze Pads
+                                    </td>
+                                      <br><br>
+                                    </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope='row'>5</th>
+                                    <td>Bite and rub teeth together, then open mouth. Adjust filling as needed.</td>
+                                      <br><br>
+                                    </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope='row'>6</th>
+                                    <td>Remove and smooth excess filling using Gauze Pads and Carver File.</td>
+                                      <br><br>
+                                    </td>
+                                    <td></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+                </div>
+        </div>
+    </div>
+    <div id = "tabbedcontainer">
+            <p>Click on the buttons inside the tabbed menu:</p>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')">Media</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Notes</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Timer</button>
+</div>
+
+<div id="London" class="tabcontent">
+        <img src="http://www.medhalt.com/procedure/ckeditor/plugins/imageuploader/uploads/17707ba2.jpg" width="500 px" height="400 px" alt="Image of a tooth extraction">
+        <br><br><br>
+        Tooth Extraction Image
+        <br><br><br><br>
+         <iframe width="500" height="400" src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1">
+        </iframe> 
+        <br><br><br>
+        Tooth Extraction Image
+        <br><br><br><br>
+        <img src="http://www.medhalt.com/procedure/ckeditor/plugins/imageuploader/uploads/17707ba2.jpg" width="500 px" height="400 px" alt="Image of a tooth extraction">
+        <br><br><br>
+        Tooth Extraction Image
+        <br><br><br><br>
+        <img src="http://www.medhalt.com/procedure/ckeditor/plugins/imageuploader/uploads/17707ba2.jpg" width="500 px" height="400 px" alt="Image of a tooth extraction">
+        <br><br><br>
+        Tooth Extraction Image
+        <br><br><br><br>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p> 
+  <br><br><br><br>
+  <h3>NOTE</h3>
+                    <p>Tooth Extraction is a last resort and is reserved only for those
+                    cases where pain is excessive or an infective process has set
+                    in and the amount of time remaining for the mission is greater
+                    than the time to safely control infection with antibiotics.  A
+                    course of antibiotics will not cure a tooth infection, and more
+                    definitive care is always necessary.  Extraction should only be
+                    done when all other treatment options have been exhausted
+                    and on consultation with Surgeon.</p>
+                    <br><br><br><br>
+                    <h3>NOTE</h3>
+                    <p>Tooth Extraction is a last resort and is reserved only for those
+                    cases where pain is excessive or an infective process has set
+                    in and the amount of time remaining for the mission is greater
+                    than the time to safely control infection with antibiotics.  A
+                    course of antibiotics will not cure a tooth infection, and more
+                    definitive care is always necessary.  Extraction should only be
+                    done when all other treatment options have been exhausted
+                    and on consultation with Surgeon.</p>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+    </div>
+</body>
+
+<!-- <script>
+    $.fn.extend({
+    createBtn: function () {
+        var elmWidth = $("li", $(this)).width(),
+            listType = $(this).listview("option", "inset") ? true : false,
+            btnWidth = elmWidth < 300 && listType ? "35%" : elmWidth > 300 && !listType ? "25%" : "20%";
+        $("li", $(this)).each(function () {
+            var text = $(this).html();
+            $(this).html($("<div/>", {
+                class: "wrapper"
+            }).append($("<div/>", {
+                class: "go"
+            }).text("Save").width(btnWidth)).append($("<div/>", {
+                class: "item"
+            }).text(text)).append($("<div/>", {
+                class: "del"
+            }).text("Delete").width(btnWidth)).css({
+                left: "-" + btnWidth
+            }).on("swipeleft swiperight vclick tap", function (e) {
+
+                $(this).revealBtn(e, btnWidth);
+            }) /**/ );
+        });
+    },
+    revealBtn: function (e, x) {
+        var check = this.check(x),
+            swipe = e.type;
+        if (check == "closed") {
+            swipe == "swiperight" ? this.open(e, x, "left") : swipe == "swipeleft" ? this.open(e, x, "right") : setTimeout(function () {
+                this.close(e);
+            }, 0);
+            e.stopImmediatePropagation();
+        }
+        if (check == "right" || check == "left") {
+            swipe == "swiperight" ? this.open(e, "left") : swipe == "swipeleft" ? this.open(e, x, "right") : setTimeout(function () {
+                this.close(e);
+            }, 0);
+            e.stopImmediatePropagation();
+        }
+        if (check !== "closed" && e.isImmediatePropagationStopped() && (swipe == "vclick" || swipe == "tap")) {
+            this.close(e);
+        }
+    },
+    close: function (e) {
+        var check = this.check();
+        this.css({
+            transform: "translateX(0)"
+        });
+    },
+    open: function (e, x, dir) {
+        var posX = dir == "left" ? x : "-" + x;
+        $(this).css({
+            transform: "translateX(" + posX + ")"
+        });
+    },
+    check: function (x) {
+        var matrix = this.css("transform").split(" "),
+            posY = parseInt(matrix[matrix.length - 2], 10),
+            btnW = (this.width() * parseInt(x) / 100) / 1.1;
+        return isNaN(posY) ? "closed" : posY >= btnW ? "left" : posY <= "-" + btnW ? "right" : "closed";
+    }
+});
+
+$(document).on("pagecreate", function () {
+    $("ul").createBtn();
+});
+</script> -->
+
+</html>

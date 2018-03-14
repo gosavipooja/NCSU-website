@@ -1,0 +1,28 @@
+#fixed
+{
+   /* position: relative; */
+   width: 1030px;
+    height: 855px;
+    border: 1px solid black;
+    float: left;
+    margin: 5px;
+}
+#scrollcontainer
+{
+   /* position: relative; */
+   overflow: scroll; 
+   width: 1030px;
+    height: 850px;
+    float: left;
+    margin: 5px;
+    margin-bottom: -300px;
+}
+#tabbedcontainer
+{
+    overflow: scroll;
+    width: 610px;
+    height: 855px;
+    border: 1px solid black;
+    float: left;
+    margin: 5px;
+}
