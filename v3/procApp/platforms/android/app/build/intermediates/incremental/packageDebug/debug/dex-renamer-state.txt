@@ -1,0 +1,4 @@
+#Tue Mar 27 19:36:16 EDT 2018
+base.0=D\:\\work\\web\\poopy\\website\\v3\\procApp\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+renamed.0=classes.dex
+file.0=D\:\\work\\web\\poopy\\website\\v3\\procApp\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex
