@@ -1,53 +1,357 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html ng-app="root">
 
 <head>
-    <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="js/root.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
     <title>ProcApp</title>
+    <script src="/node_modules/swiped/dist/swiped.js"></script>
+    <style>
+        .behind {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .behind a.ui-btn {
+            width: 68px;
+            margin: 0px;
+            float: right;
+            border: none;
+        }
+
+        .behind a.delete-btn,
+        .behind a.delete-btn:active,
+        .behind a.delete-btn:visited,
+        .behind a.delete-btn:focus,
+        .behind a.delete-btn:hover {
+            color: white;
+            background-color: red;
+            text-shadow: none;
+        }
+
+        .behind a.ui-btn.pull-left {
+            float: left;
+        }
+
+        .behind a.edit-btn,
+        .behind a.edit-btn:active,
+        .behind a.edit-btn:visited,
+        .behind a.edit-btn:focus,
+        .behind a.edit-btn:hover {
+            color: white;
+            background-color: orange;
+            text-shadow: none;
+        }
+    </style>
 </head>
 
 <body ng-controller="index">
     <div class="app">
-        <div class="Top"><h4>{{procName}}</h4></div>
-        <div class="Container">
-            <div class="Left">Left Content</div>
-            <div class="Right">Right Content</div>
+        <div class="Top">
+            <h4>{{procName}}</h4>
+        </div>
+        <div class="flex-Container">
+            <div class="Left">
+
+                <div id="container">
+                    <div data-role="page">
+                        <div data-role="header" data-position="fixed">
+                            <h1>Swipe Delete</h1>
+                        </div>
+                        <div data-role="content">
+                            <ul data-role="listview" class="swipe-delete">
+                                <li>
+                                    <div class="behind">
+                                        <a href="#" class="ui-btn delete-btn">Delete</a>
+                                        <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                                    </div>
+                                    <a href="#">item 1</a>
+                                </li>
+                                <li>
+                                    <div class="behind">
+                                        <a href="#" class="ui-btn delete-btn">Delete</a>
+                                        <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                                    </div>
+                                    <a href="#">item 2</a>
+                                </li>
+                                <li>
+                                    <div class="behind">
+                                        <a href="#" class="ui-btn delete-btn">Delete</a>
+                                        <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                                    </div>
+                                    <a href="#">item 3</a>
+                                </li>
+                                <li>
+                                    <div class="behind">
+                                        <a href="#" class="ui-btn delete-btn">Delete</a>
+                                        <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                                    </div>
+                                    <a href="#">item 4</a>
+                                </li>
+                                <li>
+                                    <div class="behind">
+                                        <a href="#" class="ui-btn delete-btn">Delete</a>
+                                        <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                                    </div>
+                                    <a href="#">item 5</a>
+                                </li>
+                                <li>
+                                    <div class="behind">
+                                        <a href="#" class="ui-btn delete-btn">Delete</a>
+                                        <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                                    </div>
+                                    <a href="#">item 6</a>
+                                </li>
+                                <li>
+                                    <div class="behind">
+                                        <a href="#" class="ui-btn delete-btn">Delete</a>
+                                        <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                                    </div>
+                                    <a href="#">item 7</a>
+                                </li>
+                                <li>
+                                    <div class="behind">
+                                        <a href="#" class="ui-btn delete-btn">Delete</a>
+                                        <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                                    </div>
+                                    <a href="#">item 8</a>
+                                </li>
+                                <li>
+                                    <div class="behind">
+                                        <a href="#" class="ui-btn delete-btn">Delete</a>
+                                        <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                                    </div>
+                                    <a href="#">item 9</a>
+                                </li>
+                                <li>
+                                    <div class="behind">
+                                        <a href="#" class="ui-btn delete-btn">Delete</a>
+                                        <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                                    </div>
+                                    <a href="#">item 10</a>
+                                </li>
+                                <li>
+                                    <div class="behind">
+                                        <a href="#" class="ui-btn delete-btn">Delete</a>
+                                        <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                                    </div>
+                                    <a href="#">item 11</a>
+                                </li>
+                                <li>
+                                    <div class="behind">
+                                        <a href="#" class="ui-btn delete-btn">Delete</a>
+                                        <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                                    </div>
+                                    <a href="#">item 12</a>
+                                </li>
+                                <li>
+                                    <div class="behind">
+                                        <a href="#" class="ui-btn delete-btn">Delete</a>
+                                        <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                                    </div>
+                                    <a href="#">item 13</a>
+                                </li>
+                                <li>
+                                    <div class="behind">
+                                        <a href="#" class="ui-btn delete-btn">Delete</a>
+                                        <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                                    </div>
+                                    <a href="#">item 14</a>
+                                </li>
+                                <li>
+                                    <div class="behind">
+                                        <a href="#" class="ui-btn delete-btn">Delete</a>
+                                        <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                                    </div>
+                                    <a href="#">item 15</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="Right">
+
+                <div id="tabbedcontainer">
+
+                    <div class="tab">
+                        <button class="tablinks" onclick="openTab(event, 'MeidaTab')">Media</button>
+                        <button class="tablinks" onclick="openTab(event, 'NotesTab')">Notes</button>
+                        <button class="tablinks" onclick="openTab(event, 'CommentTab')">Comments</button>
+                        <button class="tablinks" onclick="openTab(event, 'TimerTab')">Timer</button>
+                    </div>
+
+                    <div id="MeidaTab" class="tabcontent active">
+                        <img src="http://www.medhalt.com/procedure/ckeditor/plugins/imageuploader/uploads/17707ba2.jpg" width="500 px" height="400 px"
+                            alt="Image of a tooth extraction">
+                        <br>
+                        <br>
+                        <br> Tooth Extraction Image
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <iframe width="500" height="400" src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0">
+                        </iframe>
+                        <br>
+                        <br>
+                        <br> Tooth Extraction Video
+                    </div>
+
+                    <div id="NotesTab" class="tabcontent" style="display: 'none';">
+                        <h3>NOTE</h3>
+                        <p>Tooth Extraction is a last resort and is reserved only for those cases where pain is excessive or
+                            an infective process has set in and the amount of time remaining for the mission is greater than
+                            the time to safely control infection with antibiotics. A course of antibiotics will not cure
+                            a tooth infection, and more definitive care is always necessary. Extraction should only be done
+                            when all other treatment options have been exhausted and on consultation with Surgeon.</p>
+                    </div>
+
+                    <div id="CommentTab" class="tabcontent" style="display: 'none';">
+                        <h3>Comments</h3>
+                        <p>This is the first comment.</p>
+                        <br>
+                        <p>This is the second comment.</p>
+                        <br>
+                        <p>This is the third comment.</p>
+                    </div>
+
+                    <div id="TimerTab" class="tabcontent" style="display: 'none';">
+                        <h3>Set Timer</h3>
+                        <p id='timerPlaceholder'></p>
+                    </div>
+
+                    <script>
+                        function openTab(evt, tabName) {
+                            var i, tabcontent, tablinks;
+                            tabcontent = document.getElementsByClassName("tabcontent");
+                            for (i = 0; i < tabcontent.length; i++) {
+                                tabcontent[i].style.display = "none";
+                            }
+                            tablinks = document.getElementsByClassName("tablinks");
+                            for (i = 0; i < tablinks.length; i++) {
+                                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                            }
+                            document.getElementById(tabName).style.display = "block";
+                            evt.currentTarget.className += " active";
+                        }
+
+                        // Set the date we're counting down to
+                        var countDownDate = new Date("Jul 1, 2018 15:37:25").getTime();
+
+                        // Update the count down every 1 second
+                        var x = setInterval(function () {
+
+                            // Get todays date and time
+                            var now = new Date().getTime();
+
+                            // Find the distance between now an the count down date
+                            var distance = countDownDate - now;
+
+                            // Time calculations for days, hours, minutes and seconds
+                            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                            var timerContent = '';
+
+                            if (days) {
+                                timerContent += days + ' days ';
+                            }
+                            if (hours) {
+                                timerContent += hours + ' hours ';
+                            }
+                            if (minutes) {
+                                timerContent += minutes + ' minutes ';
+                            }
+                            if (seconds) {
+                                timerContent += seconds + 'seconds ';
+                            }
+
+                            // Display the result in the element with id="demo"
+                            document.getElementById("timerPlaceholder").innerHTML = days + "d " + hours + "h "
+                                + minutes + "m " + seconds + "s ";
+
+                            // If the count down is finished, write some text
+                            if (distance < 0) {
+                                clearInterval(x);
+                                document.getElementById("timerPlaceholder").innerHTML = "EXPIRED";
+                            }
+                        }, 1000);
+
+                    </script>
+                </div>
+
+            </div>
         </div>
     </div>
+
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            function prevent_default(e) {
+                e.preventDefault();
+            }
+            function disable_scroll() {
+                $(document).on('touchmove', prevent_default);
+            }
+            function enable_scroll() {
+                $(document).unbind('touchmove', prevent_default)
+            }
+            var x;
+            $('.swipe-delete li > a')
+                .on('touchstart', function (e) {
+                    console.log(e.originalEvent.pageX)
+                    $('.swipe-delete li > a.open').css('left', '0px').removeClass('open') // close em all
+                    $(e.currentTarget).addClass('open')
+                    x = e.originalEvent.targetTouches[0].pageX // anchor point
+                })
+                .on('touchmove', function (e) {
+                    var change = e.originalEvent.targetTouches[0].pageX - x
+                    change = Math.min(Math.max(-100, change), 100) // restrict to -100px left, 0px right
+                    e.currentTarget.style.left = change + 'px'
+                    if (change < -10) disable_scroll() // disable scroll once we hit 10px horizontal slide
+                })
+                .on('touchend', function (e) {
+                    var left = parseInt(e.currentTarget.style.left)
+                    var new_left;
+                    if (left < -35) {
+                        new_left = '-100px'
+                    } else if (left > 35) {
+                        new_left = '100px'
+                    } else {
+                        new_left = '0px'
+                    }
+                    // e.currentTarget.style.left = new_left
+                    $(e.currentTarget).animate({ left: new_left }, 200)
+                    enable_scroll()
+                });
+            $('li .delete-btn').on('touchend', function (e) {
+                e.preventDefault()
+                $(this).parents('li').slideUp('fast', function () {
+                    $(this).remove()
+                })
+            })
+            $('li .edit-btn').on('touchend', function (e) {
+                e.preventDefault()
+                $(this).parents('li').children('a').html('edited')
+            })
+        });
+    </script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 </body>

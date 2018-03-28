@@ -25,7 +25,7 @@ body {
     height: 100px;
 }
 /*This is our main wrapping element, it's made 100vh high to ensure it is always the correct size and then moved into place and padded with negative margin and padding*/
-.Container {
+.flex-Container {
     display: flex;
     overflow: hidden;
     height: calc(100vh - 100px);
