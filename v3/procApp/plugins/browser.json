@@ -7,6 +7,9 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.example.procApp"
+        },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.example.procApp"
         }

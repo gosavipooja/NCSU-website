@@ -1,0 +1,11 @@
+{
+  "name": "procapp",
+  "version": "1.0.0",
+  "description": "Procedure Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'Error: No test specified' && exit 1"
+  },
+  "author": "Sumit Srivastava",
+  "license": "ISC"
+}
