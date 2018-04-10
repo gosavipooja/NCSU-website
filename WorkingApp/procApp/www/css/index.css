@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+}
+
+/*This just stops me getting horizontal scrolling if anything overflows the width*/
+body {
+    overflow-x: hidden;
+}
+
+/*Just removing default browser padding/margin*/
+html,
+body {
+    padding: 0;
+    margin: 0;
+    color: #000000;
+}
+
+/*Flexbox gives us the flexiness we need. The top just stays put as there is no scrolling on the body due to the page never exceeding viewport height*/
+.Top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(216, 224, 216);
+    font-size: 3rem;
+    position: relative;
+    z-index: 10;
+    height: 50px;
+}
+
+/*This is our main wrapping element, it's made 100vh high to ensure it is always the correct size and then moved into place and padded with negative margin and padding*/
+.flex-Container {
+    display: flex;
+    overflow: hidden;
+    height: calc(100vh - 50px);
+    position: relative;
+    width: 100%;
+    backface-visibility: hidden;
+    will-change: overflow;
+}
+/*All the scrollable sections should overflow and be whatever height they need to be. As they are flex-items (due to being inside a flex container) they could be made to stretch full height at all times if needed.
+WebKit inertia scrolling is being added here for any present/future devices that are able to make use of it.
+*/
+.Left,
+.Right {
+    overflow: auto;
+    height: auto;
+    padding: .5rem;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+}
+
+/*Entirely optional – just wanted to remove the scrollbar on WebKit browsers as I find them ugly*/
+.Left::-webkit-scrollbar,
+.Right::-webkit-scrollbar {
+    display: none;
+}
+
+/*  Left and Right are set sizes while the Middle is set to flex one so it occupies all remaining space. This could be set as a width too if prefereable, perhaps using calc.*/
+.Left {
+    width: 55%;
+    background-color: rgb(255, 255, 255);
+}
+
+.Right {
+    flex: 1;
+    background-color: rgba(179, 136, 136, 0.89);
+}
+
+table {
+    font-family: arial, sans-serif;
+    font-size: 1.5em;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #7e7e7e;
+    text-align: left;
+    padding: 8px;
+}
+
+td.box {
+    border: 1px solid #ffffff;
+}
+td.aaa {
+    border: 1px solid #dddddd;
+}
+td.try {
+    background-color: rgb(0, 255, 234);
+}
+
+td.eee {
+    background-color: rgb(255, 0, 200);
+}
+
+td.box.taphold {
+    background-color: red;
+}
+
+td.alignment {
+    text-align: right;
+}
+/*
+# columns together
+Step columns together
+Group the sub steps
+Put warnings as an unnumbered step
+Warnings - fill up the entire cell itself
+Widen the # columns
+font-size: 1.5 em
+shorten the right panel upto "io" from extraction
+*/
