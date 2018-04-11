@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute']);
+var app = angular.module('myApp', ['ngRoute', 'ngMaterial']);
 
 app.config(function config($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
@@ -15,9 +15,7 @@ app.config(function config($routeProvider, $locationProvider) {
 });
 
 app.factory('Proc', function ($rootScope) {
-    var saved = {
-    	proc: {'id': 1, 'name': 'Procedure 1'}
-    };
+    var saved = { proc: {'id': 1, 'name': 'Procedure 1'} };
     function set(p){    	
     	saved.proc = p;    	
     }
@@ -48,9 +46,6 @@ app.controller('listController', ['$scope', '$location', 'Proc', function ($scop
 
 app.controller('detailsController', ['$scope', '$location', 'Proc', function ($scope, $location, Proc) {
 
-    $scope.global = Proc.get();
+    $scope.procedure = Proc.get();
 
-    $scope.check_value = function() {
-        console.log('global value in this controller is: ' + JSON.stringify($scope.global));
-    }
 }]);

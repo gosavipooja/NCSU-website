@@ -2,11 +2,11 @@
     <h1 align='center'>
         HybridApp Index
     </h1>
-    <table>
+    <table class='index'>
         <tbody>
             <tr ng-repeat="proc in proclist" ng-click="openProc(proc)">
-                <td>{{proc.id}}</td>
-                <td>{{proc.name}}</td>
+                <td class='sno'>{{proc.id}}</td>
+                <td class='cnt'>{{proc.name}}</td>
             </tr>
         </tbody>
     </table>

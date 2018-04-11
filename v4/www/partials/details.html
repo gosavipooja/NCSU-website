@@ -1,6 +1,6 @@
 <div ng-controller="detailsController">
     <div class="Top">
-        <h4>{{global.name}}</h4>
+        <h4>{{procedure.name}}</h4>
     </div>
     <div class="flex-Container">
         <div class="Left">
@@ -8,7 +8,7 @@
             <table>
                 <tr>
                     <th>#</th>
-                    <th>Step</th>
+                    <th class='steps'>Step</th>
                 </tr>
                 <tr>
                     <td>1</td>
@@ -61,55 +61,58 @@
 
         <div class="Right">
 
-            <div id="tabbedcontainer">
-
-                <div class="tab">
-                    <button class="tablinks" onclick="openTab(event, 'MeidaTab')">Media</button>
-                    <button class="tablinks" onclick="openTab(event, 'NotesTab')">Notes</button>
-                    <button class="tablinks" onclick="openTab(event, 'CommentTab')">Comments</button>
-                    <button class="tablinks" onclick="openTab(event, 'TimerTab')">Timer</button>
-                </div>
-                <br>
-                <div id="MeidaTab" class="tabcontent active">
-                    <img src="http://www.medhalt.com/procedure/ckeditor/plugins/imageuploader/uploads/17707ba2.jpg" width="70%" height="70%"
-                        alt="Image of a tooth extraction">
-                    <br>
-                    <br> Tooth Extraction Image
-                    <br>
-                    <br>
-                    <br>
-                    <iframe width="70%" height="70%" src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0">
-                    </iframe>
-                    <br>
-                    <br> Tooth Extraction Video
-                    <br>
-                </div>
-
-                <div id="NotesTab" class="tabcontent" style="display: 'none';">
-                    <h3>NOTE</h3>
-                    <p>Tooth Extraction is a last resort and is reserved only for those cases where pain is excessive or an
-                        infective process has set in and the amount of time remaining for the mission is greater than the
-                        time to safely control infection with antibiotics. A course of antibiotics will not cure a tooth
-                        infection, and more definitive care is always necessary. Extraction should only be done when all
-                        other treatment options have been exhausted and on consultation with Surgeon.</p>
-                </div>
-
-                <div id="CommentTab" class="tabcontent" style="display: 'none';">
-                    <h3>Comments</h3>
-                    <p>This is the first comment.</p>
-                    <br>
-                    <p>This is the second comment.</p>
-                    <br>
-                    <p>This is the third comment.</p>
-                </div>
-
-                <div id="TimerTab" class="tabcontent" style="display: 'none';">
-                    <h3>Set Timer</h3>
-                    <p id='timerPlaceholder'></p>
-                </div>
-
+            <div ng-cloak>
+                <md-content>
+                    <md-tabs md-dynamic-height md-border-bottom>
+                        <md-tab label="Notes">
+                            <md-content class="md-padding">
+                                <h1 class="md-display-2">Notes</h1>
+                                <p>Tooth Extraction is a last resort and is reserved only for those cases where pain is excessive
+                                    or an infective process has set in and the amount of time remaining for the mission is
+                                    greater than the time to safely control infection with antibiotics. A course of antibiotics
+                                    will not cure a tooth infection, and more definitive care is always necessary. Extraction
+                                    should only be done when all other treatment options have been exhausted and on consultation
+                                    with Surgeon.</p>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Media">
+                            <md-content class="md-padding">
+                                <h1 class="md-display-2">Media</h1>
+                                <p>
+                                    <img src="http://www.medhalt.com/procedure/ckeditor/plugins/imageuploader/uploads/17707ba2.jpg"
+                                        alt="Image of a tooth extraction">
+                                    <br>
+                                    <br> Tooth Extraction Image
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0">
+                                    </iframe>
+                                    <br>
+                                    <br> Tooth Extraction Video
+                                    <br>
+                                </p>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Comments">
+                            <md-content class="md-padding">
+                                <h1 class="md-display-2">Comments</h1>
+                                    <p>This is the first comment.</p>
+                                    <br>
+                                    <p>This is the second comment.</p>
+                                    <br>
+                                    <p>This is the third comment.</p>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Timer">
+                            <md-content class="md-padding">
+                                <h1 class="md-display-2">Set Timer</h1>
+                                    <p id='timerPlaceholder'></p>
+                            </md-content>
+                        </md-tab>
+                    </md-tabs>
+                </md-content>
             </div>
-
         </div>
     </div>
 </div>
