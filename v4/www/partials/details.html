@@ -10,58 +10,18 @@
                     <th>#</th>
                     <th class='steps'>Step</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td on-double-tap="eventColor(event, 'tdbox')">Unstow from Dental Subpack: Elevator,301 (Dental-4) 34S (Dental-4)</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td class="box">Anesthetize area where tooth is to be extracted</td>
-                </tr>
-                <tr>
-                    <td class="alignment">2.1</td>
-                    <td class="box">Place correct Forceps on tooth to be extracted exerting force toward root of tooth and squeeze Forceps
-                        with moderate force. Use other hand to grasp onto both sides of gum tissue of tooth to be extracted
-                        (if an upper tooth) or to hold lower jaw from moving (if a lower tooth)
-                    </td>
-                </tr>
-                <tr>
-                    <td class="alignment">2.2</td>
-                    <td class="box">Exert moderate side-to-side force (tongue to cheek) holding for 30 seconds in each direction. Continue
-                        this motion until tooth loosens and comes up out of socket on its own.
-                    </td>
-                </tr>
-                <tr>
-                    <td class="alignment">2.3</td>
-                    <td>If after several minutes, tooth has not increased in mobility, continue to step 6.</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>From cheek side, place small Elevator 301 between tooth to be extracted and adjacent tooth with lower
-                        edge of Elevator against tooth to be extracted. Apply moderate rotational force to Elevator (as if
-                        turning a screwdriver) creating a lifting force on tooth to be extracted and hold for 60 seconds.
-                        Apply this force sequentially on both front and back side of tooth. Once tooth is slightly elevated
-                        then repeat with large Elevator 34S.</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Perform steps 3 and 4 using appropriate Forceps.</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>When tooth removed, fold Gauze Pad and apply to bleeding socket until bleeding stops.</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Dispose of blood soaked Gauze Pad in Ziplock Bag (P4-B7). (blue) Affix appropriate Biohazard Decal (CCPK)
-                        and dispose of Ziplock Bag in biohazardous trash.</td>
-                </tr>
+                <tbody>
+                    <tr ng-repeat="pstep in procsteps" ng-click="openStep(pstep)">
+                        <td class='sno' ng-class="{'indented': pstep.id.includes('.'), 'selected': pstep.id == selected_step.id}">{{pstep.id}}</td>
+                        <td class='cnt' ng-class="{'indented': pstep.id.includes('.'), 'selected': pstep.id == selected_step.id}">{{pstep.text}}</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
 
         <div class="Right">
 
-            <div ng-cloak>
+            <div data-ng-cloak>
                 <md-content>
                     <md-tabs md-dynamic-height md-border-bottom>
                         <md-tab label="Notes">
@@ -113,6 +73,7 @@
                     </md-tabs>
                 </md-content>
             </div>
+            <!-- Right content end -->
         </div>
     </div>
 </div>
