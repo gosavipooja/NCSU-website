@@ -65,6 +65,7 @@ app.controller('detailsController', ['$scope', '$location', 'Proc', function ($s
     $scope.openStep = function (pstep) {
         console.log('displaying step: ' + pstep);
         $scope.selected_step = pstep;
+        console.log('selected step is: ' + $scope.selected_step.id);
     }
 
 }]);

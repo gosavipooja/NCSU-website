@@ -12,8 +12,8 @@
                 </tr>
                 <tbody>
                     <tr ng-repeat="pstep in procsteps" ng-click="openStep(pstep)">
-                        <td class='sno'ng-class="{'indented': pstep.id.includes('.')}">{{pstep.id}}</td>
-                        <td class='cnt'ng-class="{'indented': pstep.id.includes('.')}">{{pstep.text}}</td>
+                        <td class='sno' ng-class="{'indented': pstep.id.includes('.'), 'selected': pstep.id == selected_step.id}">{{pstep.id}}</td>
+                        <td class='cnt' ng-class="{'indented': pstep.id.includes('.'), 'selected': pstep.id == selected_step.id}">{{pstep.text}}</td>
                     </tr>
                 </tbody>
             </table>
