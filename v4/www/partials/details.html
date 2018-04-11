@@ -11,9 +11,9 @@
                     <th class='steps'>Step</th>
                 </tr>
                 <tbody>
-                    <tr ng-repeat="pstep in procsteps" ng-click="openStep(pstep)">
-                        <td class='sno' ng-class="{'indented': pstep.id.includes('.'), 'selected': pstep.id == selected_step.id}">{{pstep.id}}</td>
-                        <td class='cnt' ng-class="{'indented': pstep.id.includes('.'), 'selected': pstep.id == selected_step.id}">{{pstep.text}}</td>
+                    <tr ng-repeat="pstep in procsteps" ng-click="openStep(pstep)" on-long-press='itemOnLongPress(pstep)' on-touch-end='itemOnTouchEnd(pstep)'>
+                        <td class='sno' ng-class="{'indented_in': pstep.id.includes('.'), 'selected': pstep.id == selected_step.id}">{{pstep.id}}</td>
+                        <td class='cnt' ng-class="{'indented_tx': pstep.id.includes('.'), 'selected': pstep.id == selected_step.id}">{{pstep.text}}</td>
                     </tr>
                 </tbody>
             </table>

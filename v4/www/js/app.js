@@ -49,11 +49,11 @@ app.controller('detailsController', ['$scope', '$location', 'Proc', function ($s
 
     $scope.procedure = Proc.get();
 
-    $scope.itemOnLongPress = function () {
-        console.log("Long Press event.");
+    $scope.itemOnLongPress = function (pstep) {
+        console.log("Long Press event. For step: " + JSON.stringify(pstep));
     };
-    $scope.itemOnTouchEnd = function () {
-        console.log("Touch end event.");
+    $scope.itemOnTouchEnd = function (pstep) {
+        console.log("Touch end event. For step: " + JSON.stringify(pstep));
     };
 
     $scope.selected_step = {};
