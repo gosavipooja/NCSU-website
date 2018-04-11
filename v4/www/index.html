@@ -1,0 +1,24 @@
+<html ng-app="myApp">
+
+<head>
+    <!-- Require Angular CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <!-- Require UI Router for Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <!-- Require Angular Code -->
+    <script type="text/javascript" src="/js/app.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <base href="/">
+    <Title>Hybrid App</Title>
+    <meta name="fragment" content="!">
+</head>
+
+<body ng-controller="listController">
+    <div ng-view class='my-container'></div>
+</body>
+
+</html>

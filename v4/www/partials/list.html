@@ -1,0 +1,13 @@
+<div ng-controller="listController">
+    <h1 align='center'>
+        HybridApp Index
+    </h1>
+    <table>
+        <tbody>
+            <tr ng-repeat="proc in proclist" ng-click="openProc(proc)">
+                <td>{{proc.id}}</td>
+                <td>{{proc.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
