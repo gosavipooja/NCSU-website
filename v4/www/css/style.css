@@ -127,5 +127,12 @@ td.indented_tx {
 }
 
 td.selected {
-    background-color: rgb(199, 250, 233);
+    background-color: rgb(82, 192, 255);
+    color: white;
+}
+
+.back-button {
+    float: left !important;
+    left: 8 !important;
+    position: absolute !important;
 }

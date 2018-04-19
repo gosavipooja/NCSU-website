@@ -1,17 +1,18 @@
-<div ng-controller="detailsController">
+<div ng-controller="index" ng-init="init()">
     <div class="Top">
-        <h4>{{procedure.name}}</h4>
+        <md-button class="md-raised md-primary back-button" ng-click="goBack()"><i class="fas fa-angle-left"></i></md-button>
+        <h1>{{procedure.name}}</h1>
     </div>
     <div class="flex-Container">
         <div class="Left">
-            <h2>Steps for the Procedure</h2>
+            <h3>Steps for the Procedure</h3>
             <table>
                 <tr>
                     <th>#</th>
                     <th class='steps'>Step</th>
                 </tr>
                 <tbody>
-                    <tr ng-repeat="pstep in procsteps" ng-click="openStep(pstep)" on-long-press='itemOnLongPress(pstep)' on-touch-end='itemOnTouchEnd(pstep)'>
+                    <tr ng-repeat="pstep in data[procedure.name]" ng-click="openStep(pstep)" on-long-press='itemOnLongPress(pstep)' on-touch-end='itemOnTouchEnd(pstep)'>
                         <td class='sno' ng-class="{'indented_in': pstep.id.includes('.'), 'selected': pstep.id == selected_step.id}">{{pstep.id}}</td>
                         <td class='cnt' ng-class="{'indented_tx': pstep.id.includes('.'), 'selected': pstep.id == selected_step.id}">{{pstep.text}}</td>
                     </tr>
@@ -39,8 +40,7 @@
                             <md-content class="md-padding">
                                 <h1 class="md-display-2">Media</h1>
                                 <p>
-                                    <img src="http://www.medhalt.com/procedure/ckeditor/plugins/imageuploader/uploads/17707ba2.jpg"
-                                        alt="Image of a tooth extraction">
+                                    <img src="http://www.medhalt.com/procedure/ckeditor/plugins/imageuploader/uploads/17707ba2.jpg" alt="Image of a tooth extraction">
                                     <br>
                                     <br> Tooth Extraction Image
                                     <br>
@@ -57,17 +57,17 @@
                         <md-tab label="Comments">
                             <md-content class="md-padding">
                                 <h1 class="md-display-2">Comments</h1>
-                                    <p>This is the first comment.</p>
-                                    <br>
-                                    <p>This is the second comment.</p>
-                                    <br>
-                                    <p>This is the third comment.</p>
+                                <p>This is the first comment.</p>
+                                <br>
+                                <p>This is the second comment.</p>
+                                <br>
+                                <p>This is the third comment.</p>
                             </md-content>
                         </md-tab>
                         <md-tab label="Timer">
                             <md-content class="md-padding">
                                 <h1 class="md-display-2">Set Timer</h1>
-                                    <p id='timerPlaceholder'></p>
+                                <p id='timerPlaceholder'></p>
                             </md-content>
                         </md-tab>
                     </md-tabs>
