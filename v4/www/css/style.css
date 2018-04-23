@@ -136,3 +136,7 @@ td.selected {
     left: 8 !important;
     position: absolute !important;
 }
+
+#round {
+    border-radius: 50%;
+}

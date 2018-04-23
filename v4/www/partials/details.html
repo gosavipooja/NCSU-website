@@ -10,11 +10,13 @@
                 <tr>
                     <th>#</th>
                     <th class='steps'>Step</th>
+                    <th></th>
                 </tr>
                 <tbody>
                     <tr ng-repeat="pstep in data[procedure.name]" ng-click="openStep(pstep)" on-long-press='itemOnLongPress(pstep)' on-touch-end='itemOnTouchEnd(pstep)'>
                         <td class='sno' ng-class="{'indented_in': pstep.id.includes('.'), 'selected': pstep.id == selected_step.id}">{{pstep.id}}</td>
                         <td class='cnt' ng-class="{'indented_tx': pstep.id.includes('.'), 'selected': pstep.id == selected_step.id}">{{pstep.text}}</td>
+                        <td><button class="round">+</button></td>
                     </tr>
                 </tbody>
             </table>
