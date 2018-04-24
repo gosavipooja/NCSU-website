@@ -1,8 +1,16 @@
 <div ng-controller="index" ng-init="init()">
-    <div class="Top">
+    <!-- <div class="Top">
         <md-button class="md-raised md-primary back-button" ng-click="goBack()"><i class="fas fa-angle-left"></i></md-button>
         <h1>{{procedure.name}}</h1>
-    </div>
+    </div> -->
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" ng-click="goBack()" aria-label="Go Back">
+                <i class="fas fa-angle-left"></i>
+            </md-button>
+            <span style="text-align: center;" flex>{{procedure.name}}</span>
+        </div>
+    </md-toolbar>
     <div class="flex-Container">
         <div class="Left">
             <h3>Steps for the Procedure</h3>
@@ -13,10 +21,12 @@
                     <th></th>
                 </tr>
                 <tbody>
-                    <tr ng-repeat="pstep in data[procedure.name]" ng-click="openStep(pstep)" on-long-press='itemOnLongPress(pstep)' on-touch-end='itemOnTouchEnd(pstep)'>
+                    <tr ng-repeat="pstep in procedure.steps" ng-click="openStep(pstep)" on-long-press='itemOnLongPress(pstep)' on-touch-end='itemOnTouchEnd(pstep)'>
                         <td class='sno' ng-class="{'indented_in': pstep.id.includes('.'), 'selected': pstep.id == selected_step.id}">{{pstep.id}}</td>
                         <td class='cnt' ng-class="{'indented_tx': pstep.id.includes('.'), 'selected': pstep.id == selected_step.id}">{{pstep.text}}</td>
-                        <td><button class="round">+</button></td>
+                        <td>
+                            <md-button style="min-width: 5% !important;"><i class="fas fa-plus-circle"></i></md-button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -30,46 +40,71 @@
                         <md-tab label="Notes">
                             <md-content class="md-padding">
                                 <h1 class="md-display-2">Notes</h1>
-                                <p>Tooth Extraction is a last resort and is reserved only for those cases where pain is excessive
-                                    or an infective process has set in and the amount of time remaining for the mission is
-                                    greater than the time to safely control infection with antibiotics. A course of antibiotics
-                                    will not cure a tooth infection, and more definitive care is always necessary. Extraction
-                                    should only be done when all other treatment options have been exhausted and on consultation
-                                    with Surgeon.</p>
+                                <md-list flex>
+                                    <md-list-item ng-if="procedure && procedure.notes && procedure.notes.length > 0" class="md-1-line" ng-repeat="note in procedure.notes">
+                                        <div class="md-list-item-text" layout="column">
+                                            <p>{{note.text}}</p>
+                                        </div>
+                                    </md-list-item>
+                                    <md-list-item ng-if="!procedure || !procedure.notes || procedure.notes.length == 0" class="md-1-line">
+                                        <div class="md-list-item-text" layout="column">
+                                            <p>No Notes for this procedure.</p>
+                                        </div>
+                                    </md-list-item>
+                                </md-list>
+                                <p></p>
                             </md-content>
                         </md-tab>
                         <md-tab label="Media">
                             <md-content class="md-padding">
                                 <h1 class="md-display-2">Media</h1>
-                                <p>
-                                    <img src="http://www.medhalt.com/procedure/ckeditor/plugins/imageuploader/uploads/17707ba2.jpg" alt="Image of a tooth extraction">
-                                    <br>
-                                    <br> Tooth Extraction Image
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0">
-                                    </iframe>
-                                    <br>
-                                    <br> Tooth Extraction Video
-                                    <br>
-                                </p>
+                                <md-list flex>
+                                    <md-list-item ng-if="selected_step && selected_step.media && selected_step.media.length > 0" class="md-1-line" ng-repeat="mediafile in selected_step.media">
+                                        <div class="md-list-item-text" layout="column">
+                                            <div ng-if="mediafile.type == 'image'">
+                                                <img ng-src="{{cleanPath(mediafile.path)}}" alt="{{mediafile.title}}">
+                                                <br>
+                                                <span>{{mediafile.title}}</span>
+                                            </div>
+                                            <br>
+                                            <div ng-if="mediafile.type == 'video'">
+                                                <iframe ng-src="{{ cleanPath(mediafile.path) }}" frameborder="0"></iframe>
+                                                <br>
+                                                <span>{{mediafile.title}}</span>
+                                            </div>
+                                        </div>
+                                    </md-list-item>
+                                    <md-list-item ng-if="!selected_step || !selected_step.media || selected_step.media.length == 0" class="md-1-line">
+                                        <div class="md-list-item-text" layout="column">
+                                            <p>No media for this step.</p>
+                                        </div>
+                                    </md-list-item>
+                                </md-list>
                             </md-content>
                         </md-tab>
                         <md-tab label="Comments">
                             <md-content class="md-padding">
-                                <h1 class="md-display-2">Comments</h1>
-                                <p>This is the first comment.</p>
-                                <br>
-                                <p>This is the second comment.</p>
-                                <br>
-                                <p>This is the third comment.</p>
+                                <md-list flex>
+                                    <md-list-item ng-if="selected_step && selected_step.comments && selected_step.comments.length > 0" class="md-1-line" ng-repeat="comment in selected_step.comments">
+                                        <div class="md-list-item-text" layout="column">
+                                            <p>{{ comment.text }}</p>
+                                        </div>
+                                    </md-list-item>
+                                    <md-list-item ng-if="!selected_step || !selected_step.comments || selected_step.comments.length == 0" class="md-1-line">
+                                        <div class="md-list-item-text" layout="column">
+                                            <p>No Comments for this Step.</p>
+                                        </div>
+                                    </md-list-item>
+                                </md-list>
                             </md-content>
                         </md-tab>
                         <md-tab label="Timer">
                             <md-content class="md-padding">
-                                <h1 class="md-display-2">Set Timer</h1>
-                                <p id='timerPlaceholder'></p>
+                                <div ng-if="selected_step && selected_step.timer">
+                                    <h1 class="md-display-2">Set Timer</h1>
+                                    <p id='timerPlaceholder'></p>
+                                </div>
+                                <div ng-if="!selected_step || !selected_step.timer">No Timer needed for this step.</div>
                             </md-content>
                         </md-tab>
                     </md-tabs>
