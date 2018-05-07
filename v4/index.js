@@ -30,43 +30,61 @@ MongoClient.connect(dburl, function (err, db) {
 server.post('/upload', function (req, res) {
   if (!req.files) {
     console.log('No files present in the request.');
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     return res.status(400).send('No files to upload.');
   } else {
     // The name of the input field (i.e. "jsonFile") is used to retrieve the uploaded file
     let jsonFile = req.files.jsonFile;
     // Use the mv() method to place the file somewhere on the server
     if (jsonFile) {
-      jsonFile.mv('temp/' + jsonFile.name, function (err) {
+      jsonFile.mv('www/data/' + jsonFile.name, function (err) {
         if (err) {
           console.log(err);
+          res.header('Access-Control-Allow-Origin', '*');
+          res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+          res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
           return res.status(500).send(err);
         } else {
           var fname = JSON.stringify(jsonFile.name);
           console.log('File: ' + fname + ' Uploaded Successfuly!');
           var data = {};
-          readFile('temp/' + jsonFile.name, function (filename, content) {
+          readFile('www/data/' + jsonFile.name, function (filename, content) {
             data["name"] = jsonFile.name;
             data[jsonFile.name] = content;
             console.log('File read: ' + jsonFile.name);
-            server.locals.dbo.collection("procedures").deleteMany({name: jsonFile.name}, function (err, obj) {
+            server.locals.dbo.collection("procedures").deleteMany({ name: jsonFile.name }, function (err, obj) {
               if (err) throw err;
               console.log("If file with same name exists in database, it will be overwritten.");
             });
             server.locals.dbo.collection('procedures').insertOne(data, function () {
               if (err) {
                 console.log(err);
+                res.header('Access-Control-Allow-Origin', '*');
+                res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+                res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
                 return res.status(500).send(err);
               }
               console.log('File inserted in database!');
+              res.header('Access-Control-Allow-Origin', '*');
+              res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+              res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
               res.status(200).send('File Uploaded Successfully:\n' + JSON.stringify(jsonFile.name));
             });
           }, function (err) {
             console.log(err);
+            res.header('Access-Control-Allow-Origin', '*');
+            res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+            res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
             return res.status(500).send(err);
           });
         }
       });
     } else {
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+      res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
       return res.status(400).send('No files to upload.');
     }
   }
@@ -88,6 +106,9 @@ server.get('/procList', function (req, res) {
         procList.push(v.name);
       }
       data.list = procList;
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+      res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
       res.status(200).send(data);
     }
   });
