@@ -32,7 +32,7 @@ app.factory('Storage', ['$window', function ($window) {
     }
 }]);
 
-app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$sce', function ($scope, $location, Storage, $http, $modal, $sce) {
+app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$sce', '$interval', function ($scope, $location, Storage, $http, $modal, $sce, $interval) {
 
     $scope.data = {};
     $scope.proclist = {};
@@ -154,6 +154,12 @@ app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$
         console.log('Perform Option 3 action here for step: ' + step.id);
     };
 
+    //Stop Watch
+    $scope.sharedTime = new Date();
+    $interval(function () {
+        $scope.sharedTime = new Date();
+    }, 500);
+
 }]);
 
 app.directive('onLongPress', function ($timeout) {
@@ -188,4 +194,60 @@ app.directive('onLongPress', function ($timeout) {
             });
         }
     };
+});
+
+app.directive('stopwatch', function () {
+    return {
+        restrict: 'AE',
+        templateUrl: 'stopwatch.html',
+        scope: {
+            title: '@title',
+            currentTime: '=time'
+        },
+        link: function (scope, element, attrs, ctrl) {
+
+        },
+
+        controllerAs: 'swctrl',
+        controller: function ($scope, $interval) {
+            console.log("Directive's controller");
+            var self = this;
+            var totalElaspedMs = 0;
+            var elapsedMs = 0;
+            var startTime;
+            var timerPromise;
+
+            self.start = function () {
+                if (!timerPromise) {
+                    startTime = new Date();
+                    timerPromise = $interval(function () {
+                        var now = new Date();
+                        elapsedMs = now.getTime() - startTime.getTime();
+                    }, 31);
+                }
+            };
+
+            self.stop = function () {
+                if (timerPromise) {
+                    $interval.cancel(timerPromise);
+                    timerPromise = undefined;
+                    totalElapsedMs += elapsedMs;
+                    elapsedMs = 0;
+                }
+            };
+
+            self.reset = function () {
+                startTime = new Date();
+                totalElapsedMs = elapsedMs = 0;
+            };
+
+            self.getTime = function () {
+                return time;
+            };
+
+            self.getElapsedMs = function () {
+                return totalElapsedMs + elapsedMs;
+            };
+        }
+    }
 });
