@@ -53,6 +53,7 @@ app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$
         }
         $scope.procedure = Storage.get('procedure');
         $scope.selected_step = Storage.get('selected_step');
+        //swctrl.reset();
     };
 
     $scope.itemOnLongPress = function (pstep) {
