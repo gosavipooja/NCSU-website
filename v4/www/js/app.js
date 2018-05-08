@@ -32,7 +32,7 @@ app.factory('Storage', ['$window', function ($window) {
     }
 }]);
 
-app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$sce', function ($scope, $location, Storage, $http, $modal, $sce) {
+app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$sce', '$interval', function ($scope, $location, Storage, $http, $modal, $sce, $interval) {
 
     $scope.data = {};
     $scope.proclist = {};
@@ -53,6 +53,7 @@ app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$
         }
         $scope.procedure = Storage.get('procedure');
         $scope.selected_step = Storage.get('selected_step');
+        //swctrl.reset();
     };
 
     $scope.itemOnLongPress = function (pstep) {
@@ -270,6 +271,12 @@ app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$
         });
     };
 
+    //Stop Watch
+    $scope.sharedTime = new Date();
+    $interval(function () {
+        $scope.sharedTime = new Date();
+    }, 500);
+
 }]);
 
 app.directive('onLongPress', function ($timeout) {
@@ -304,4 +311,79 @@ app.directive('onLongPress', function ($timeout) {
             });
         }
     };
+});
+
+app.directive('stopwatch', function () {
+    return {
+        restrict: 'AE',
+        templateUrl: 'stopwatch.html',
+        scope: {
+            title: '@title',
+            currentTime: '=time'
+        },
+        link: function (scope, element, attrs, ctrl) {
+
+        },
+
+        controllerAs: 'swctrl',
+        controller: function ($scope, $interval) {
+            console.log("Directive's controller");
+            var self = this;
+            var totalElapsedMs = 0;
+            var elapsedMs = 0;
+            var startTime;
+            var timerPromise;
+
+            self.start = function () {
+                if (!timerPromise) {
+                    startTime = new Date();
+                    timerPromise = $interval(function () {
+                        var now = new Date();
+                        elapsedMs = now.getTime() - startTime.getTime();
+                    }, 31);
+                }
+            };
+
+            self.stop = function () {
+                if (timerPromise) {
+                    $interval.cancel(timerPromise);
+                    timerPromise = undefined;
+                    totalElapsedMs += elapsedMs;
+                    elapsedMs = 0;
+                }
+            };
+
+            self.lap = function () {
+                if (timerPromise) {
+                    return totalElapsedMs;
+                } else {
+                    return;
+                }
+            };
+
+            self.reset = function () {
+                startTime = new Date();
+                totalElapsedMs = elapsedMs = 0;
+                $scope.lapVal = 0;
+            };
+
+            self.getTime = function () {
+                return time;
+            };
+
+            $scope.lapVal = 0;
+            $scope.printLap = function (t) {
+                $scope.lapVal = $scope.lapVal + '\<br\>'+ t;
+                console.log('time is: ' + t);
+            }
+
+            self.getElapsedMs = function () {
+                if (totalElapsedMs) {
+                    return totalElapsedMs + elapsedMs;
+                } else {
+                    return elapsedMs;
+                }
+            };
+        }
+    }
 });
