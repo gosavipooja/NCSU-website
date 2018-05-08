@@ -217,6 +217,8 @@ app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$
         $scope.sharedTime = new Date();
     }, 500);
 
+
+
 }]);
 
 app.directive('onLongPress', function ($timeout) {
@@ -269,7 +271,7 @@ app.directive('stopwatch', function () {
         controller: function ($scope, $interval) {
             console.log("Directive's controller");
             var self = this;
-            var totalElaspedMs = 0;
+            var totalElapsedMs = 0;
             var elapsedMs = 0;
             var startTime;
             var timerPromise;
@@ -293,17 +295,36 @@ app.directive('stopwatch', function () {
                 }
             };
 
+            self.lap = function () {
+                if (timerPromise) {
+                    return totalElapsedMs;
+                } else {
+                    return;
+                }
+            };
+
             self.reset = function () {
                 startTime = new Date();
                 totalElapsedMs = elapsedMs = 0;
+                $scope.lapVal = 0;
             };
 
             self.getTime = function () {
                 return time;
             };
 
+            $scope.lapVal = 0;
+            $scope.printLap = function (t) {
+                $scope.lapVal = $scope.lapVal + '\<br\>'+ t;
+                console.log('time is: ' + t);
+            }
+
             self.getElapsedMs = function () {
-                return totalElapsedMs + elapsedMs;
+                if (totalElapsedMs) {
+                    return totalElapsedMs + elapsedMs;
+                } else {
+                    return elapsedMs;
+                }
             };
         }
     }
