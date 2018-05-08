@@ -138,3 +138,48 @@
         </div>
     </div>
 </div>
+<script>
+    var doAudio = function () {
+        console.log('Audio script loaded');
+        var recorder = document.getElementById('recorder');
+        var player = document.getElementById('player');
+
+        recorder.addEventListener('change', function (e) {
+            var file = e.target.files[0];
+            console.log('data aaya:' + file);
+            player.src = URL.createObjectURL(file);
+        });
+    }
+
+    var doImage = function () {
+        console.log('Image script loaded');
+        const output = document.getElementById('output');
+        const fileInput = document.getElementById('file-input');
+        fileInput.addEventListener('change', (e) => doSomethingWithFiles(e.target.files));
+        function doSomethingWithFiles(fileList) {
+            let file = null;
+            for (let i = 0; i < fileList.length; i++) {
+                if (fileList[i].type.match(/^image\//)) {
+                    file = fileList[i];
+                    break;
+                }
+            }
+            if (file !== null) {
+                console.log('data aaya:' + file);
+                output.src = URL.createObjectURL(file);
+            }
+        }
+    }
+
+    var doVideo = function () {
+        console.log('Video script loaded');
+        var recorder = document.getElementById('recorder');
+        var player = document.getElementById('player');
+
+        recorder.addEventListener('change', function (e) {
+            var file = e.target.files[0];
+            console.log('data aaya:' + file);
+            player.src = URL.createObjectURL(file);
+        });
+    }
+</script>

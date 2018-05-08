@@ -210,6 +210,66 @@ app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$
         console.log('Adding comment for step: ' + step.id);
     };
 
+    $scope.initImageModal = function () {
+        console.log('init image modal');
+    };
+
+    $scope.initVideoModal = function () {
+        console.log('init video modal');
+    };
+
+    $scope.initAudioModal = function () {
+        console.log('init audio modal');
+    };
+
+    $scope.imgSrc = '';
+    $scope.imageSelected = function (elem) {
+        console.log('image selected...');
+        $scope.$apply(function (scope) {
+            var photofile = elem.files[0];
+            $scope.imgSrc = URL.createObjectURL(photofile);
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                // handle onload
+                console.log('photofile h: ' + photofile);
+                console.log('image file onload called. e aaya: ' + e);
+            };
+            reader.readAsDataURL(photofile);
+        });
+    };
+
+    $scope.vidSrc = '';
+    $scope.videoSelected = function (elem) {
+        console.log('video selected...');
+        $scope.$apply(function (scope) {
+            var videoFile = elem.files[0];
+            $scope.vidSrc = URL.createObjectURL(videoFile);
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                // handle onload
+                console.log('videoFile h: ' + videoFile);
+                console.log('video file onload called. e aaya: ' + e);
+            };
+            reader.readAsDataURL(videoFile);
+        });
+    };
+
+    $scope.audSrc = '';
+    $scope.audioSelected = function (elem) {
+        console.log('audio selected...');
+        $scope.$apply(function (scope) {
+            var audioFile = elem.files[0];
+            $scope.audSrc = audioFile;
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                // handle onload
+                console.log('audioFile h: ' + audioFile);
+                console.log('audio file onload called. e aaya: ' + e);
+            };
+            reader.readAsDataURL(audioFile);
+        });
+    };
+
 }]);
 
 app.directive('onLongPress', function ($timeout) {
