@@ -39,6 +39,7 @@ app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$
     $scope.procedure = {};
     $scope.selected_step = {};
     $scope.fileUpload = false;
+    $scope.procNumber = {};
 
     $scope.init = function () {
         console.log('Init...');
@@ -53,6 +54,7 @@ app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$
         }
         $scope.procedure = Storage.get('procedure');
         $scope.selected_step = Storage.get('selected_step');
+        $scope.procNumber = Storage.get('procNumber');
     };
 
     $scope.itemOnLongPress = function (pstep) {
@@ -73,7 +75,8 @@ app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$
     }
 
     $scope.openProc = function (proc) {
-        console.log('Opening proc: ' + JSON.stringify(proc.name))
+        console.log('Opening proc: ' + JSON.stringify(proc.name));
+        Storage.set('procNumber', proc.id);
         Storage.set('procedure', JSON.parse($scope.data[proc.name + '.json']));
         $location.path('details');
     };
@@ -212,14 +215,23 @@ app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$
 
     $scope.initImageModal = function () {
         console.log('init image modal');
+        $scope.procedure = Storage.get('procedure');
+        $scope.selected_step = Storage.get('selected_step');
+        $scope.procNumber = Storage.get('procNumber');
     };
 
     $scope.initVideoModal = function () {
         console.log('init video modal');
+        $scope.procedure = Storage.get('procedure');
+        $scope.selected_step = Storage.get('selected_step');
+        $scope.procNumber = Storage.get('procNumber');
     };
 
     $scope.initAudioModal = function () {
         console.log('init audio modal');
+        $scope.procedure = Storage.get('procedure');
+        $scope.selected_step = Storage.get('selected_step');
+        $scope.procNumber = Storage.get('procNumber');
     };
 
     $scope.imgSrc = '';
@@ -372,7 +384,7 @@ app.directive('stopwatch', function () {
 
             $scope.lapVal = 0;
             $scope.printLap = function (t) {
-                $scope.lapVal = $scope.lapVal + '\<br\>'+ t;
+                $scope.lapVal = $scope.lapVal + '\n' + t;
                 console.log('time is: ' + t);
             }
 

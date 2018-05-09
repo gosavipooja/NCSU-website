@@ -149,3 +149,7 @@ td.selected {
 #round {
     border-radius: 50%;
 }
+
+div.white-space-pre-line {
+    white-space: pre-line;
+}
