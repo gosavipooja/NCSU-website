@@ -1,0 +1,332 @@
+{
+    "name": "Patient Setup",
+    "steps": [
+        {
+            "id": "Preliminary 1",
+            "text": "Completed the Ventilator Setup Procedure",
+            "media": [
+                {
+                    "id": "<>",
+                    "title": "<>",
+                    "type": "image",
+                    "path": "<>"
+                },
+                {
+                    "id": "<>",
+                    "title": "<>",
+                    "type": "image",
+                    "path": "<>"
+                }
+            ],
+            "comments": [
+                {
+                    "id": "<>",
+                    "text": "<>"
+                },
+                {
+                    "id": "<comment id>",
+                    "text": "<comment text>"
+                }
+            ],
+            "timer": false
+        },
+        {
+            "id": "1",
+            "text": "Determine if you have already saved previous patient's data",
+            "media": [
+                {
+                    "id": "<>",
+                    "title": "<>",
+                    "type": "image",
+                    "path": "<>"
+                },
+                {
+                    "id": "<>",
+                    "title": "<>",
+                    "type": "image",
+                    "path": "<>"
+                }
+            ],
+            "comments": [
+                {
+                    "id": "1",
+                    "text": "We already saved and backed up patient data so it's safe to delete previous patient data."
+                },
+                {
+                    "id": "<comment id>",
+                    "text": "<comment text>"
+                }
+            ],
+            "timer": false
+        },
+        {
+            "id": "2",
+            "text": "A popup will state 'Do you want to delete patient data, trends and event log?' If yes, touch 'Yes.' If no, touch 'No' and save previous patient's data",
+            "media": [
+                {
+                    "id": "<>",
+                    "title": "<>",
+                    "type": "video",
+                    "path": "<>"
+                },
+                {
+                    "id": "<media id>",
+                    "title": "<media title>",
+                    "type": "<image/video>",
+                    "path": "<media path – for now keep this a youtube video>"
+                }
+            ],
+            "comments": [
+                {
+                    "id": "<comment id>",
+                    "text": "<comment text>"
+                },
+                {
+                    "id": "<comment id>",
+                    "text": "<comment text>"
+                }
+            ],
+            "timer": false
+        },
+        {
+            "id": "3",
+            "text": "Ensure that correct patient size (Infant or Adult) has been selected",
+            "media": [
+                {
+                    "id": "<media id>",
+                    "title": "<media title>",
+                    "type": "<image/video>",
+                    "path": "<media path – for now keep this a youtube video>"
+                },
+                {
+                    "id": "<media id>",
+                    "title": "<media title>",
+                    "type": "<image/video>",
+                    "path": "<media path – for now keep this a youtube video>"
+                }
+            ],
+            "comments": [
+                {
+                    "id": "1",
+                    "text": "Dogs under 6kg are considered 'infant' and the dog you are ventilating today is a 3.14kg Yorkshire terrier"
+                },
+                {
+                    "id": "<comment id>",
+                    "text": "<comment text>"
+                }
+            ],
+            "timer": false
+        },
+        {
+            "id": "4",
+            "text": "If a new patient size has been selected, a popup will state 'Accept calculated compressible volume after patient category change?' Touch 'Yes'",
+            "media": [
+                {
+                    "id": "<media id>",
+                    "title": "<media title>",
+                    "type": "<image/video>",
+                    "path": "<media path – for now keep this a youtube video>"
+                },
+                {
+                    "id": "<media id>",
+                    "title": "<media title>",
+                    "type": "<image/video>",
+                    "path": "<media path – for now keep this a youtube video>"
+                }
+            ],
+            "comments": [
+                {
+                    "id": "<comment id>",
+                    "text": "<comment text>"
+                },
+                {
+                    "id": "<comment id>",
+                    "text": "<comment text>"
+                }
+            ],
+            "timer": false
+        },
+        {
+            "id": "5",
+            "text": "To select ventilation mode, touch ventilation mode button on top left of screen",
+            "media": [
+                {
+                    "id": "<media id>",
+                    "title": "<media title>",
+                    "type": "<image/video>",
+                    "path": "<media path – for now keep this a youtube video>"
+                },
+                {
+                    "id": "<media id>",
+                    "title": "<media title>",
+                    "type": "<image/video>",
+                    "path": "<media path – for now keep this a youtube video>"
+                }
+            ],
+            "comments": [
+                {
+                    "id": "1",
+                    "text": "There will be two popups that prompt you to start the pre-use check. Press yes on both to start."
+                },
+                {
+                    "id": "<comment id>",
+                    "text": "<comment text>"
+                }
+            ],
+            "timer": false
+        },
+        {
+            "id": "6",
+            "text": "Determine which ventilation mode is required",
+            "media": [
+                {
+                    "id": "<media id>",
+                    "title": "<media title>",
+                    "type": "<image/video>",
+                    "path": "<media path – for now keep this a youtube video>"
+                },
+                {
+                    "id": "<media id>",
+                    "title": "<media title>",
+                    "type": "<image/video>",
+                    "path": "<media path – for now keep this a youtube video>"
+                }
+            ],
+            "comments": [
+                {
+                    "id": "1",
+                    "text": "The ventilation mode should be set to SIMV (Press. Contrl.) + Pressure support."
+                },
+                {
+                    "id": "<comment id>",
+                    "text": "<comment text>"
+                }]
+            },
+		{
+                "id": "7",
+                "text": "Touch ventilation mode drop-down menu button to select ventilation mode",
+                "media": [
+                    {
+                        "id": "<media id>",
+                        "title": "<media title>",
+                        "type": "<image/video>",
+                        "path": "<media path – for now keep this a youtube video>"
+                    },
+                    {
+                        "id": "<media id>",
+                        "title": "<media title>",
+                        "type": "<image/video>",
+                        "path": "<media path – for now keep this a youtube video>"
+                    }
+                ],
+                "comments": [
+                    {
+                        "id": "1",
+                        "text": "The drop-down button is in the upper left of the ventilation mode window, and probably says 'Pressure Control'"
+                    },
+                    {
+                        "id": "<comment id>",
+                        "text": "<comment text>"
+                    }
+                ],
+                "timer": false
+            },
+            {
+                "id": "8",
+                "text": "Choose ventilation mode",
+                "media": [
+                    {
+                        "id": "<media id>",
+                        "title": "<media title>",
+                        "type": "<image/video>",
+                        "path": "<media path – for now keep this a youtube video>"
+                    },
+                    {
+                        "id": "<media id>",
+                        "title": "<media title>",
+                        "type": "<image/video>",
+                        "path": "<media path – for now keep this a youtube video>"
+                    }
+                ],
+                "comments": [
+                    {
+                        "id": "<>",
+                        "text": "<>"
+                    },
+                    {
+                        "id": "<comment id>",
+                        "text": "<comment text>"
+                    }
+                ],
+                "timer": false
+            },
+            {
+                "id": "9",
+                "text": "Change desired settings by touching corresponding button",
+                "media": [
+                    {
+                        "id": "<media id>",
+                        "title": "<media title>",
+                        "type": "<image/video>",
+                        "path": "<media path – for now keep this a youtube video>"
+                    },
+                    {
+                        "id": "<media id>",
+                        "title": "<media title>",
+                        "type": "<image/video>",
+                        "path": "<media path – for now keep this a youtube video>"
+                    }
+                ],
+                "comments": [
+                    {
+                        "id": "1",
+                        "text": "Under Mandatory Breath, set PC above PEEP (not PEEP) to 9 and SIMV rate to 20. Under Trigger set the Trigg. Flow to 5. Under Supported Breath, set PC above PEEP to 4."
+                    },
+                    {
+                        "id": "<comment id>",
+                        "text": "<comment text>"
+                    }
+                ],
+                "timer": false
+            },
+            {
+                "id": "10",
+                "text": "Touch 'accept' to set changes",
+                "media": [
+                    {
+                        "id": "<media id>",
+                        "title": "<media title>",
+                        "type": "<image/video>",
+                        "path": "<media path – for now keep this a youtube video>"
+                    },
+                    {
+                        "id": "<media id>",
+                        "title": "<media title>",
+                        "type": "<image/video>",
+                        "path": "<media path – for now keep this a youtube video>"
+                    }
+                ],
+                "comments": [
+                    {
+                        "id": "<comment id>",
+                        "text": "<comment text>"
+                    },
+                    {
+                        "id": "<comment id>",
+                        "text": "<comment text>"
+                    }
+                ],
+                "timer": false
+            }
+        ],
+        "notes": [
+            {
+                "id": "<>",
+                "text": "<>"
+            },
+		    {
+                "id": "<>",
+                "text": "<>"
+            }
+        ]
+    }

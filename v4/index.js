@@ -9,6 +9,10 @@ var server = express();
 server.use(fileUpload());
 server.use(express.static(__dirname + '/www'));
 
+var bodyParser = require('body-parser'); 
+server.use(bodyParser.json()); 
+server.use(bodyParser.urlencoded({ extended: true }));
+
 var port = process.env.PORT || 5000;
 
 /**
@@ -32,10 +36,12 @@ server.post('/uploadImage', function (req, res) {
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     return res.status(400).send('No image files to upload.');
   } else {
-    let procNumber = req.body.procNumber;
-    let stepNumber = req.body.stepNumber;
+    // let procNumber = req.body.procNumber;
+    // let stepNumber = req.body.stepNumber;
+    console.log('Req.body: ');
+    console.log(req.body);
     let imgFile = req.files.imgFile;
-    console.log('Proc Number: ' + procNumber + ', Step Number: ' + stepNumber + ', Image File: ' + imgFile);
+    // console.log('Proc Number: ' + procNumber + ', Step Number: ' + stepNumber + ', Image File: ' + imgFile);
     if (imgFile) {
       console.log('dummy image response!');
       res.header('Access-Control-Allow-Origin', '*');
