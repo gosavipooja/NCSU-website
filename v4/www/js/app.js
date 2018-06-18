@@ -84,7 +84,7 @@ app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$
     };
 
     $scope.openStep = function (pstep) {
-        if (pstep.id != 'WARN') {
+        if (pstep.id != 'WARN' && pstep.id != 'CAUTION') {
             console.log('Displaying step');
             Storage.set('selected_step', pstep);
             $scope.selected_step = pstep;
@@ -212,7 +212,7 @@ app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$
 
     $scope.markComplete = function (step) {
         $scope.openStep(step);
-        if (step.id != 'WARN') {
+        if (step.id != 'WARN' && step.id != 'CAUTION') {
             console.log('Marking Step: ' + step.id + ' as Complete');
             if (typeof $scope.completed_steps[$scope.procedure.name] == undefined || $scope.completed_steps[$scope.procedure.name] == null) {
                 $scope.completed_steps[$scope.procedure.name] = [];
@@ -220,12 +220,18 @@ app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$
             if (typeof $scope.flagged_steps[$scope.procedure.name] == undefined || $scope.flagged_steps[$scope.procedure.name] == null) {
                 $scope.flagged_steps[$scope.procedure.name] = [];
             } else {
-                $scope.flagged_steps[$scope.procedure.name].splice($scope.flagged_steps[$scope.procedure.name].indexOf(step.id), 1);
+                idx_flg = $scope.flagged_steps[$scope.procedure.name].indexOf(step.id);
+                if (idx_flg != -1) {
+                    console.log('Removing flagged: ' + $scope.flagged_steps[$scope.procedure.name].splice(idx_flg, 1));
+                }
             }
             if (typeof $scope.uncompleted_steps[$scope.procedure.name] == undefined || $scope.uncompleted_steps[$scope.procedure.name] == null) {
                 $scope.uncompleted_steps[$scope.procedure.name] = [];
             } else {
-                $scope.uncompleted_steps[$scope.procedure.name].splice($scope.uncompleted_steps[$scope.procedure.name].indexOf(step.id), 1);
+                idx_uncompl = $scope.uncompleted_steps[$scope.procedure.name].indexOf(step.id);
+                if (idx_uncompl != -1) {
+                    console.log('Removing uncompleted: ' + $scope.uncompleted_steps[$scope.procedure.name].splice(idx_uncompl, 1));
+                }
             }
             $scope.completed_steps[$scope.procedure.name].push(step.id);
             Storage.set('completed_steps', $scope.completed_steps[$scope.procedure.name]);
@@ -234,12 +240,15 @@ app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$
 
     $scope.markFailed = function (step) {
         $scope.openStep(step);
-        if (step.id != 'WARN') {
+        if (step.id != 'WARN' && step.id != 'CAUTION') {
             console.log('Marking Step: ' + step.id + ' as Failed');
             if (typeof $scope.completed_steps[$scope.procedure.name] == undefined || $scope.completed_steps[$scope.procedure.name] == null) {
                 $scope.completed_steps[$scope.procedure.name] = [];
             } else {
-                $scope.completed_steps[$scope.procedure.name].splice($scope.completed_steps[$scope.procedure.name].indexOf(step.id), 1);
+                idx_compl = $scope.completed_steps[$scope.procedure.name].indexOf(step.id);
+                if (idx_compl != -1) {
+                    console.log('Removing completed: ' + $scope.completed_steps[$scope.procedure.name].splice(idx_compl, 1));
+                }
             }
             if (typeof $scope.flagged_steps[$scope.procedure.name] == undefined || $scope.flagged_steps[$scope.procedure.name] == null) {
                 $scope.flagged_steps[$scope.procedure.name] = [];
@@ -247,7 +256,10 @@ app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$
             if (typeof $scope.uncompleted_steps[$scope.procedure.name] == undefined || $scope.uncompleted_steps[$scope.procedure.name] == null) {
                 $scope.uncompleted_steps[$scope.procedure.name] = [];
             } else {
-                $scope.uncompleted_steps[$scope.procedure.name].splice($scope.uncompleted_steps[$scope.procedure.name].indexOf(step.id), 1);
+                idx_uncompl = $scope.uncompleted_steps[$scope.procedure.name].indexOf(step.id);
+                if (idx_uncompl != -1) {
+                    console.log('Removing uncompleted: ' + $scope.uncompleted_steps[$scope.procedure.name].splice(idx_uncompl, 1));
+                }
             }
             $scope.flagged_steps[$scope.procedure.name].push(step.id);
             Storage.set('flagged_steps', $scope.flagged_steps[$scope.procedure.name]);
@@ -256,17 +268,23 @@ app.controller('index', ['$scope', '$location', 'Storage', '$http', '$modal', '$
 
     $scope.unmarkComplete = function (step) {
         $scope.openStep(step);
-        if (step.id != 'WARN') {
+        if (step.id != 'WARN' && step.id != 'CAUTION') {
             console.log('Marking Step: ' + step.id + ' as Un-complete');
             if (typeof $scope.completed_steps[$scope.procedure.name] == undefined || $scope.completed_steps[$scope.procedure.name] == null) {
                 $scope.completed_steps[$scope.procedure.name] = [];
             } else {
-                $scope.completed_steps[$scope.procedure.name].splice($scope.completed_steps[$scope.procedure.name].indexOf(step.id), 1);
+                idx_compl = $scope.completed_steps[$scope.procedure.name].indexOf(step.id);
+                if (idx_compl != -1) {
+                    console.log('Removing completed: ' + $scope.completed_steps[$scope.procedure.name].splice(idx_compl, 1));
+                }
             }
             if (typeof $scope.flagged_steps[$scope.procedure.name] == undefined || $scope.flagged_steps[$scope.procedure.name] == null) {
                 $scope.flagged_steps[$scope.procedure.name] = [];
             } else {
-                $scope.flagged_steps[$scope.procedure.name].splice($scope.flagged_steps[$scope.procedure.name].indexOf(step.id), 1);
+                idx_flg = $scope.flagged_steps[$scope.procedure.name].indexOf(step.id);
+                if (idx_flg != -1) {
+                    console.log('Removing flagged: ' + $scope.flagged_steps[$scope.procedure.name].splice(idx_flg, 1));
+                }
             }
             if (typeof $scope.uncompleted_steps[$scope.procedure.name] == undefined || $scope.uncompleted_steps[$scope.procedure.name] == null) {
                 $scope.uncompleted_steps[$scope.procedure.name] = [];
