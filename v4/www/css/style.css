@@ -171,9 +171,12 @@ td.failed {
 
 td.selected {
     background-color: #333A56;
-    border: 1px !important;
-    border-color: #990000 !important;
     color: #F7F5E6;
+}
+
+tr.selected {
+    border: solid 3px !important;
+    border-color: #a3fa16 !important;
 }
 
 .back-button {
